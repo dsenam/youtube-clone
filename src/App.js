@@ -1,32 +1,38 @@
-import React from 'react';
-import Routes from './routes'
-import {ThemeProvider, createMuiTheme, makeStyles} from '@material-ui/core'
-import { orange } from '@material-ui/core/colors';
+import React, { useState } from 'react';
+import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core';
+
+import Home from './pages/Home';
 
 const useStyles = makeStyles({
-  root: {
-    background: 'red',
-    height: '100vh'
-  }
-})
+  root: {},
+});
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
   const theme = createMuiTheme({
+    spacing: 4,
     palette: {
+      type: darkMode ? 'dark' : 'light',
       primary: {
         main: '#f44336',
       },
       secondary: {
-        main: '#3f51b5'
-      }
-    }
-  })
+        main: '#3EA6FF',
+      },
+      background: {
+        default: darkMode ? '#232323' : '#FFF',
+        dark: darkMode ? '#181818' : '#f4f6f8',
+        paper: darkMode ? '#232323' : '#FFF',
+      },
+    },
+  });
 
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme} >
-      <Routes />
+    <ThemeProvider theme={theme}>
+      <Home darkMode={darkMode} setDarkMode={setDarkMode} />
     </ThemeProvider>
   );
 }
