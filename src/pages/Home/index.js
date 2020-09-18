@@ -165,48 +165,7 @@ function Home({ darkMode, setDarkMode }) {
 
   return (
     <div className={classes.root}>
-      <AppBar color='inherit' className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            edge='start'
-            className={classes.menuIcon}
-            aria-label='menu'
-          >
-            <MenuIcon />
-          </IconButton>
-          <img
-            src={
-              theme.palette.type === 'dark'
-                ? '/images/branco.png'
-                : '/images/preto.png'
-            }
-            alt='logo'
-            className={classes.logo}
-          />
-          <div className={classes.grow} />
-          <Switch
-            value={darkMode}
-            onChange={() => setDarkMode(!darkMode)}
-            className={classes.icons}
-          />
-          <IconButton className={classes.icons}>
-            <VideoCall />
-          </IconButton>
-          <IconButton className={classes.icons}>
-            <Apps />
-          </IconButton>
-          <IconButton className={classes.icons}>
-            <MoreVert />
-          </IconButton>
-          <Button
-            startIcon={<AccountCircle />}
-            variant='outlined'
-            color='secondary'
-          >
-            Fazer Login
-          </Button>
-        </Toolbar>
-      </AppBar>
+      <Home />
       <Box display='flex'>
         <Hidden mdDown>
           <Drawer
